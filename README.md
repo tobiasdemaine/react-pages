@@ -8,7 +8,7 @@ This componet is designed for react apps where uses get to create content and/or
 
 ## Objects
 
-- audio : embed an an audio file
+- audio : embed an audio file
 - carousel : a swipable carsousel of images and text
 - dataTable : a table for dsplaying data
 - graphQl : graphQl query as content source
@@ -26,52 +26,39 @@ This componet is designed for react apps where uses get to create content and/or
 For the content renderer
 
 ```ts
-import Page from "@tobiasdemaine/React-Pages"
-import {useState} from "react"
-
+import Page from "@tobiasdemaine/React-Pages";
+import { useState } from "react";
 
 export const PageDisplay = () => {
-    {content, setContent} = useState({})//the page content json
-    return (
-        <>
-            <Page page={content} />
-        </>
-    )
-}
-
+  const [content, setContent] = useState({}); //the page content json
+  return (
+    <>
+      <Page page={content} />
+    </>
+  );
+};
 ```
 
 for the content editor
 
 ```ts
-import { ContentEdit } from '@tobiasdemaine/React-Pages'
+import { ContentEdit } from "@tobiasdemaine/React-Pages";
 
 export const PageEdit = () => {
-    {content, setContent} = useState({})//the page content json
-    return (
-        <>
-            <ContentEdit page={content} setPageCB={
-                (_page: any) => {
-                    setContent(_page)
-                }
-            }
-                fileHandlerCB={
-                    async (_file: any) => {
-                        const file = await uploadFile(_file) // your file upload hook
-                        return file.data.src // returns the filename to constent editor for insertion into the page json
-                    }
-                }
-            />
-        </>
-    )
-}
-```
-
-## example
-
-Setup example
-
-```sh
-npm install
-npm run start
+  const [content, setContent] = useState({}); //the page content json
+  return (
+    <>
+      <ContentEdit
+        page={content}
+        setPageCB={(_page: any) => {
+          setContent(_page);
+        }}
+        fileHandlerCB={async (_file: any) => {
+          const file = await uploadFile(_file); // your file upload hook
+          return file.data.src; // returns the filename to constent editor for insertion into the page json
+        }}
+      />
+    </>
+  );
+};
 ```

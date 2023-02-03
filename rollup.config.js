@@ -1,11 +1,11 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import json from "@rollup/plugin-json"
+import json from "@rollup/plugin-json";
 import dts from "rollup-plugin-dts";
-import { readFileSync } from 'node:fs';
+import { readFileSync } from "node:fs";
 const packageJson = JSON.parse(
-	readFileSync(new URL('./package.json', import.meta.url))
+  readFileSync(new URL("./package.json", import.meta.url))
 );
 
 export default [
